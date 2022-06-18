@@ -16,9 +16,4 @@ public class Analyst extends Employee {
     public String getTeam(){
         return team;
     }
-
-    @Override
-    public void setIncome() {
-        this.income = income.multiply(new BigDecimal("1.15"));
-    }
 }

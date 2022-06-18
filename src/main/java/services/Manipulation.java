@@ -10,11 +10,11 @@ import java.util.Scanner;
 
 public class Manipulation {
     public static boolean getLogin(Employee employee, String key, String password) {
-        return (employee.getKey().equals(key) && employee.passwordValued(password));
+        return (employee.getLogin().equals(key) && employee.passwordValued(password));
     }
 
     public static boolean getLogin(Manager manager, String key, String password, String keyG) {
-        return (manager.getKey().equals(key) && manager.passwordValued(password) && manager.keyGValued(keyG));
+        return (manager.getLogin().equals(key) && manager.passwordValued(password) && manager.keyGValued(keyG));
     }
 
     public static boolean loginValidate(Employee aux, String key, String password) {

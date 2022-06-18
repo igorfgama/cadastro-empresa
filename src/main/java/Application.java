@@ -2,22 +2,15 @@
 import services.*;
 
 
+import java.io.FileNotFoundException;
 import java.util.*;
 
 public class Application {
-    public static void main(String[] args) throws InputMismatchException {
+    public static void main(String[] args) throws InputMismatchException, FileNotFoundException {
         System.out.println("--------------------------------");
         System.out.println("/////// IF SOLUÇÕES S.A. ///////");
         System.out.println("--------------------------------");
 
-        MenuApplications.menu();
+        MenuApplications.init();
     }
 }
-
-//        Scanner sc = new Scanner(new File("src/contas.csv"));
-
-//        while (sc.hasNext()){
-//            String l = sc.nextLine();
-//            System.out.println(l);
-//        }
-//scanner.close();

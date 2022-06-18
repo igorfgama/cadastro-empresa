@@ -12,14 +12,8 @@ public class Manager extends Employee {
         System.out.println("Chave G: " + managerKey);
     }
 
-    @Override
-    public void setIncome() {
-        this.income = income.multiply(new BigDecimal("1.6"));
-    }
-
     private String setManagerKey(){
         return "" +
-                Manager.total++ +
                 ((int) (Math.random() * 100)) +
                 ((int) (Math.random() * 100)) + "";
     }
