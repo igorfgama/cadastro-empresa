@@ -2,6 +2,7 @@ package services;
 
 import models.Analyst;
 import models.Employee;
+import models.Job;
 import models.Manager;
 
 import java.io.*;
@@ -15,8 +16,11 @@ public class MenuApplications {
 
     public static void init() throws FileNotFoundException {
         loadFile();
+        Job job = new Job();
+        job.loadJobs();
         menu();
     }
+
     public static void menu() throws FileNotFoundException {
 
         while (true) {
@@ -29,9 +33,10 @@ public class MenuApplications {
                     case 2 -> employees.add(getManager());
                     case 3 -> getRegister();
                     case 4 -> getList();
-                    case 5 -> setJobs();
+                    case 5 -> recordJobs();
                     case 6 -> login();
                     case 7 -> closeProgram();
+                    case 8 -> new Job().getJobs();
                     default -> System.out.println("Entrada inválida.");
                 }
             } catch (InputMismatchException | IOException e) {
@@ -126,25 +131,27 @@ public class MenuApplications {
 //        employees.sort(Comparator.comparing(Employee::getName));
     }
 
-    public static void setJobs() {
+    private static void recordJobs() {
         System.out.println("*** ADICIONANDO TRABALHOS **");
 
         try {
             System.out.println("Chave da conta: ");
-            String key = scanner.next();
+            String login = scanner.next();
 
-            Employee aux = returnEmployee(key);
+            Employee aux = returnEmployee(login);
 
             if(Objects.isNull(aux)){
                 System.out.println("Chave não encontrada.");
             }
             else {
                 System.out.println("Descreva a tarefa: ");
-                String job = scanner.next();
+                String describe = scanner.next();
+                Job job = new Job();
+                job.setJobs(login, describe);
                 System.out.println("Registrado");
             }
             menu();                                                  // <<-- VOLTANDO AO MENU PRINCIPAL
-        } catch (InputMismatchException | FileNotFoundException e) {
+        } catch (RuntimeException | IOException e) {
             throw new InputMismatchException("Entrada inválida.");
         }
     }
@@ -185,13 +192,12 @@ public class MenuApplications {
             int c = scanner.nextInt();
 
             switch (c){
-                case 1 -> setJobs();
+                case 1 -> recordJobs();
                 case 2 -> Manipulation.setTeam();
                 case 3 -> menu();
                 default -> System.out.println("Entrada inválida.");
             }
         }
-
     }
 
     // MÉTODO DE BUSCA DE EMPREGADO

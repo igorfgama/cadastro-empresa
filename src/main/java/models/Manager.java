@@ -1,10 +1,7 @@
 package models;
 
-import java.math.BigDecimal;
-
 public class Manager extends Employee {
     private String managerKey;
-    private int totalManager;
 
     public Manager(String name, String password) {
         super(name, password);
