@@ -42,7 +42,7 @@ public class Manipulation {
         try{
             System.out.println("Chave do Analista");
             String key = scanner.next();
-            Analyst aux = (Analyst) MenuApplications.returnEmployee(key);
+            Analyst aux = (Analyst) ProcessingService.returnEmployee(key);
             if(Objects.isNull(aux))
                 System.out.println("Chave inexistente.");
             else{

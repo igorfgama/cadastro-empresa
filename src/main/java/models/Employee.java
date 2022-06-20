@@ -4,7 +4,6 @@ public abstract class Employee {
     protected String login;
     private String password;
 
-
     public Employee(String login, String password) {
         this.login = login;
         this.password = password;

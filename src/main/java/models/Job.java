@@ -18,7 +18,7 @@ public class Job {
         Writer osw = new OutputStreamWriter(fos);
         BufferedWriter bw = new BufferedWriter(osw);
 
-        bw.write("" + login + "," + job);
+        bw.write(login + "," + job);
         bw.newLine();
         bw.close();
     }
